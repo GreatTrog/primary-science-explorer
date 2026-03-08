@@ -1,0 +1,143 @@
+{
+  "schemaVersion": 2,
+  "id": "periscope-and-reflection",
+  "slug": "periscope-and-reflection",
+  "title": "Periscope Reflection Lab",
+  "yearGroup": "Year 6",
+  "ageBand": "UKS2",
+  "curriculumArea": "Light",
+  "topicKeywords": ["light", "reflection", "periscope", "mirrors"],
+  "enquiryType": "Pattern seeking",
+  "wsObjectives": [
+    "Use models to explain scientific ideas",
+    "Identify variables in an optical setup",
+    "Use evidence to explain patterns"
+  ],
+  "difficulty": "stretch",
+  "sceneFamily": "light_optics",
+  "sceneConfig": {
+    "family": "light_optics",
+    "payload": {
+      "mirrorAngles": [
+        { "id": "thirty", "label": "30 degrees", "degrees": 30 },
+        { "id": "forty-five", "label": "45 degrees", "degrees": 45 },
+        { "id": "sixty", "label": "60 degrees", "degrees": 60 }
+      ],
+      "targets": [
+        { "id": "red-buoy", "label": "Red buoy", "color": "#e45757" },
+        { "id": "blue-flag", "label": "Blue flag", "color": "#4b82ff" }
+      ]
+    }
+  },
+  "cameraPreset": "optics-focus",
+  "lightingPreset": "demo-stage",
+  "interactionTargets": [
+    { "id": "mirror-angle", "label": "Mirror angle selector", "kind": "selector" },
+    { "id": "target", "label": "Target selector", "kind": "selector" },
+    { "id": "trace", "label": "Trace the light path", "kind": "action" }
+  ],
+  "effectTimelines": [
+    { "id": "ray", "label": "Ray trace", "description": "A torch beam travels into the periscope, reflects from the mirrors and either reaches the eyepiece or misses it." }
+  ],
+  "trialExtraction": {
+    "primaryMeasure": "targetVisible",
+    "unit": "visibility state",
+    "observedFields": ["targetVisible", "mirrorAngleDegrees"]
+  },
+  "steps": [
+    {
+      "id": "question",
+      "title": "Define the optics question",
+      "prompt": "How does mirror angle affect whether light reaches the viewer through a periscope?",
+      "guidance": "Choose the question that best matches the pattern you want to explore.",
+      "responseType": "choice",
+      "options": [
+        { "id": "angle", "label": "How does mirror angle affect the ray path?" },
+        { "id": "visibility", "label": "How does mirror angle affect target visibility?" }
+      ],
+      "minimumEvidence": { "type": "option", "minEntries": 1 }
+    },
+    {
+      "id": "plan",
+      "title": "Plan the model investigation",
+      "prompt": "Choose the variable you will change and the conditions you will keep steady.",
+      "guidance": "The periscope shape and the light source must stay the same for a fair model test.",
+      "responseType": "choice",
+      "allowMultiple": true,
+      "options": [
+        { "id": "change-angle", "label": "Change mirror angle" },
+        { "id": "same-target", "label": "Keep the target position the same" },
+        { "id": "same-periscope", "label": "Keep the periscope shape the same" },
+        { "id": "same-light", "label": "Keep the torch direction the same" }
+      ],
+      "minimumEvidence": { "type": "option", "minEntries": 3 }
+    },
+    {
+      "id": "prediction",
+      "title": "Predict the reflection path",
+      "prompt": "Predict which mirror angle will guide the light beam down the periscope to the viewer.",
+      "guidance": "Study the setup preview first, then think about how reflection changes the beam direction.",
+      "responseType": "text",
+      "sentenceStem": "I predict ___ will work best because ___.",
+      "minimumEvidence": { "type": "text", "minEntries": 1 }
+    },
+    {
+      "id": "simulation",
+      "title": "Trace the periscope beam",
+      "prompt": "Choose a mirror angle and target, then trace the beam from the torch through the periscope.",
+      "guidance": "Watch whether the beam reaches the eyepiece or hits the inside of the model.",
+      "responseType": "simulation",
+      "minimumEvidence": { "type": "trial", "minEntries": 1 }
+    },
+    {
+      "id": "record",
+      "title": "Record what happened",
+      "prompt": "Record which mirror angle let the target be seen and describe what happened to the beam.",
+      "guidance": "Use the traced light path as evidence.",
+      "responseType": "text",
+      "minimumEvidence": { "type": "text", "minEntries": 1 }
+    },
+    {
+      "id": "analyse",
+      "title": "Analyse the pattern",
+      "prompt": "What pattern do you notice between mirror angle and whether the target could be seen?",
+      "guidance": "Compare at least two traced paths.",
+      "responseType": "text",
+      "minimumEvidence": { "type": "analysis", "minEntries": 1 }
+    },
+    {
+      "id": "conclusion",
+      "title": "Conclude using evidence",
+      "prompt": "Explain how reflection helped the beam reach the viewer in the most successful trial.",
+      "guidance": "Refer to the mirror angle and the ray path.",
+      "responseType": "text",
+      "minimumEvidence": { "type": "text", "minEntries": 1 }
+    },
+    {
+      "id": "evaluate",
+      "title": "Evaluate the model",
+      "prompt": "What part of this light model is simplified compared with a real periscope?",
+      "guidance": "Think about perfectly visible rays, perfect mirrors and fixed light paths.",
+      "responseType": "text",
+      "minimumEvidence": { "type": "text", "minEntries": 1 }
+    }
+  ],
+  "recordingModes": ["short-text", "simple-table", "labelled-note"],
+  "teacherNotes": [
+    "The beam is visible on purpose so pupils can talk through the reflection path.",
+    "Use the eyepiece outcome to connect beam direction with whether the target can be seen."
+  ],
+  "safetyNote": "Real periscope builds may involve mirrors and cutting materials; use teacher-approved equipment and safe handling routines.",
+  "misconceptionChecks": [
+    "The visible beam is a model to show direction, not literal visible light in every real situation.",
+    "The mirrors redirect the light; they do not create the light."
+  ],
+  "supportsNarration": true,
+  "estimatedDuration": 25,
+  "performanceTier": "enhanced",
+  "hero": {
+    "eyebrow": "Year 6 optics",
+    "blurb": "Trace a torch beam through a procedural periscope and test which mirror angles actually let the viewer see the target.",
+    "accent": "#61b7d8"
+  }
+}

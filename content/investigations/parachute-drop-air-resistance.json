@@ -1,0 +1,139 @@
+{
+  "schemaVersion": 2,
+  "id": "parachute-drop-air-resistance",
+  "slug": "parachute-drop-air-resistance",
+  "title": "Parachute Drop Air Resistance Lab",
+  "yearGroup": "Year 5",
+  "ageBand": "UKS2",
+  "curriculumArea": "Forces",
+  "topicKeywords": ["forces", "air resistance", "gravity", "parachute"],
+  "enquiryType": "Comparative and fair testing",
+  "wsObjectives": [
+    "Plan controlled tests",
+    "Take measurements from repeated trials",
+    "Explain results using force ideas"
+  ],
+  "difficulty": "core",
+  "sceneFamily": "forces_motion",
+  "sceneConfig": {
+    "family": "forces_motion",
+    "payload": {
+      "towerHeightMeters": 18,
+      "parachutes": [
+        { "id": "small", "label": "Small canopy", "canopyRadius": 0.8, "dropTimeSeconds": 2.6, "color": "#f97068" },
+        { "id": "medium", "label": "Medium canopy", "canopyRadius": 1.25, "dropTimeSeconds": 3.7, "color": "#5fb0ff" },
+        { "id": "large", "label": "Large canopy", "canopyRadius": 1.7, "dropTimeSeconds": 5.1, "color": "#79c57f" }
+      ]
+    }
+  },
+  "cameraPreset": "tower-drop",
+  "lightingPreset": "demo-stage",
+  "interactionTargets": [
+    { "id": "canopy", "label": "Canopy size selector", "kind": "selector" },
+    { "id": "drop", "label": "Drop parachute", "kind": "action" }
+  ],
+  "effectTimelines": [
+    { "id": "descent", "label": "Descent animation", "description": "Payload falls with visible drag and canopy stretch." }
+  ],
+  "trialExtraction": {
+    "primaryMeasure": "dropTimeSeconds",
+    "unit": "seconds",
+    "observedFields": ["dropTimeSeconds", "airResistanceLevel"]
+  },
+  "steps": [
+    {
+      "id": "question",
+      "title": "Frame the question",
+      "prompt": "How does parachute canopy size affect the time it takes a payload to reach the ground?",
+      "guidance": "Choose the comparison that matches the variable you want to test.",
+      "responseType": "choice",
+      "options": [
+        { "id": "canopy-size", "label": "How does canopy size affect descent time?" },
+        { "id": "air-resistance", "label": "How does air resistance change when the canopy gets larger?" }
+      ],
+      "minimumEvidence": { "type": "option", "minEntries": 1 }
+    },
+    {
+      "id": "plan",
+      "title": "Plan the fair test",
+      "prompt": "Select the variables and controls for your drop test.",
+      "guidance": "A fair test changes one feature and keeps the release height and payload mass the same.",
+      "responseType": "choice",
+      "allowMultiple": true,
+      "options": [
+        { "id": "change-canopy", "label": "Change canopy size" },
+        { "id": "same-height", "label": "Keep release height the same" },
+        { "id": "same-payload", "label": "Keep payload mass the same" },
+        { "id": "same-start", "label": "Release from the same starting point" }
+      ],
+      "minimumEvidence": { "type": "option", "minEntries": 3 }
+    },
+    {
+      "id": "prediction",
+      "title": "Predict with force ideas",
+      "prompt": "Predict which canopy will stay in the air longest and explain your reasoning.",
+      "guidance": "Connect your explanation to air resistance and balanced forces.",
+      "responseType": "text",
+      "sentenceStem": "I predict ___ will descend most slowly because ___.",
+      "minimumEvidence": { "type": "text", "minEntries": 1 }
+    },
+    {
+      "id": "simulation",
+      "title": "Run the drop",
+      "prompt": "Select a canopy size and drop the parachute from the tower.",
+      "guidance": "Watch the canopy stretch and the payload speed change as it falls.",
+      "responseType": "simulation",
+      "minimumEvidence": { "type": "trial", "minEntries": 1 }
+    },
+    {
+      "id": "record",
+      "title": "Record the result",
+      "prompt": "Record the descent time and describe what the parachute did during the fall.",
+      "guidance": "Use the visual drop and the timing readout together.",
+      "responseType": "text",
+      "minimumEvidence": { "type": "text", "minEntries": 1 }
+    },
+    {
+      "id": "analyse",
+      "title": "Compare the trials",
+      "prompt": "What pattern do you see when canopy size changes?",
+      "guidance": "Look for a relationship between the larger canopy and the time in the air.",
+      "responseType": "text",
+      "minimumEvidence": { "type": "analysis", "minEntries": 1 }
+    },
+    {
+      "id": "conclusion",
+      "title": "Conclude from evidence",
+      "prompt": "Explain how air resistance affected the parachute’s motion.",
+      "guidance": "Use the trial timings and the movement you observed.",
+      "responseType": "text",
+      "minimumEvidence": { "type": "text", "minEntries": 1 }
+    },
+    {
+      "id": "evaluate",
+      "title": "Evaluate the investigation",
+      "prompt": "What would you improve before running more parachute drops?",
+      "guidance": "Think about repeated trials and timing precision.",
+      "responseType": "text",
+      "minimumEvidence": { "type": "text", "minEntries": 1 }
+    }
+  ],
+  "recordingModes": ["short-text", "simple-table", "labelled-note"],
+  "teacherNotes": [
+    "The scene exaggerates canopy motion slightly to make force changes legible to pupils.",
+    "Encourage discussion of when forces become more balanced during the descent."
+  ],
+  "safetyNote": "The tower and release are virtual; real drop tests should be supervised and carried out in a safe open area.",
+  "misconceptionChecks": [
+    "Heavier-looking objects do not always fall faster when air resistance changes.",
+    "A larger canopy increases drag; it does not reduce gravity."
+  ],
+  "supportsNarration": true,
+  "estimatedDuration": 25,
+  "performanceTier": "enhanced",
+  "hero": {
+    "eyebrow": "Year 5 forces",
+    "blurb": "Drop a procedural parachute from a tower and watch drag change the fall in real time.",
+    "accent": "#6588ff"
+  }
+}

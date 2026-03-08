@@ -1,0 +1,151 @@
+{
+  "schemaVersion": 2,
+  "id": "dissolving-and-separating-mixtures",
+  "slug": "dissolving-and-separating-mixtures",
+  "title": "Dissolving and Separating Mixtures Lab",
+  "yearGroup": "Year 5",
+  "ageBand": "UKS2",
+  "curriculumArea": "Properties and changes of materials",
+  "topicKeywords": ["mixtures", "dissolving", "separation", "temperature"],
+  "enquiryType": "Comparative and fair testing",
+  "wsObjectives": [
+    "Plan comparative tests",
+    "Control variables",
+    "Use evidence to explain dissolving and recovery"
+  ],
+  "difficulty": "core",
+  "sceneFamily": "particles_mixtures",
+  "sceneConfig": {
+    "family": "particles_mixtures",
+    "payload": {
+      "substances": [
+        { "id": "salt", "label": "Salt", "color": "#f4f5f6", "dissolves": true, "baseDissolveSeconds": 6, "residueColor": "#f5f5f5" },
+        { "id": "sugar", "label": "Sugar", "color": "#f0e1c1", "dissolves": true, "baseDissolveSeconds": 8, "residueColor": "#f0e1c1" },
+        { "id": "sand", "label": "Sand", "color": "#c6aa72", "dissolves": false, "baseDissolveSeconds": 18, "residueColor": "#b48a52" }
+      ],
+      "temperatures": [
+        { "id": "cold", "label": "Cold water", "multiplier": 1.4, "tint": "#6db2ff" },
+        { "id": "warm", "label": "Warm water", "multiplier": 1, "tint": "#83d0ff" },
+        { "id": "hot", "label": "Hot water", "multiplier": 0.7, "tint": "#ffd4a8" }
+      ],
+      "stirringLevels": [
+        { "id": "still", "label": "No stirring", "multiplier": 1.3 },
+        { "id": "gentle", "label": "Gentle stirring", "multiplier": 1 },
+        { "id": "fast", "label": "Fast stirring", "multiplier": 0.72 }
+      ]
+    }
+  },
+  "cameraPreset": "mixtures-bench",
+  "lightingPreset": "bright-lab",
+  "interactionTargets": [
+    { "id": "substance", "label": "Substance selector", "kind": "selector" },
+    { "id": "temperature", "label": "Temperature selector", "kind": "selector" },
+    { "id": "stirring", "label": "Stirring selector", "kind": "selector" },
+    { "id": "run", "label": "Run dissolve test", "kind": "action" }
+  ],
+  "effectTimelines": [
+    { "id": "particles", "label": "Particles dissolve", "description": "Granules shrink and disperse in the beaker." },
+    { "id": "residue", "label": "Residue remains", "description": "Undissolved solids settle at the bottom." }
+  ],
+  "trialExtraction": {
+    "primaryMeasure": "measuredTimeSeconds",
+    "unit": "seconds",
+    "observedFields": ["dissolveTimeSeconds", "settlingTimeSeconds", "outcome", "residueVisible"]
+  },
+  "steps": [
+    {
+      "id": "question",
+      "title": "Frame the investigation",
+      "prompt": "How does changing water temperature affect how quickly a substance dissolves?",
+      "guidance": "Pick the investigation question that best matches the test you want to run.",
+      "responseType": "choice",
+      "options": [
+        { "id": "temperature", "label": "How does temperature affect dissolving speed?" },
+        { "id": "stirring", "label": "How does stirring affect dissolving speed?" }
+      ],
+      "minimumEvidence": { "type": "option", "minEntries": 1 }
+    },
+    {
+      "id": "plan",
+      "title": "Plan variables and controls",
+      "prompt": "Choose what you will change and what you will keep the same.",
+      "guidance": "A strong plan identifies the independent variable and at least two control variables.",
+      "responseType": "choice",
+      "allowMultiple": true,
+      "options": [
+        { "id": "change-temperature", "label": "Change water temperature" },
+        { "id": "same-volume", "label": "Keep water volume the same" },
+        { "id": "same-substance", "label": "Keep the mass and substance the same" },
+        { "id": "same-beaker", "label": "Use the same beaker size" }
+      ],
+      "minimumEvidence": { "type": "option", "minEntries": 3 }
+    },
+    {
+      "id": "prediction",
+      "title": "Predict using variables",
+      "prompt": "Now that you know the variables, predict which condition will dissolve the solid fastest and explain why.",
+      "guidance": "Link your prediction to particle movement and energy.",
+      "responseType": "text",
+      "sentenceStem": "I predict ___ will dissolve fastest because ___.",
+      "minimumEvidence": { "type": "text", "minEntries": 1 }
+    },
+    {
+      "id": "simulation",
+      "title": "Run the dissolve test",
+      "prompt": "Select a substance, water temperature and stirring level, then run the visual experiment.",
+      "guidance": "Watch the particles carefully before you record the result.",
+      "responseType": "simulation",
+      "minimumEvidence": { "type": "trial", "minEntries": 1 }
+    },
+    {
+      "id": "record",
+      "title": "Record observations",
+      "prompt": "Record the dissolve time, or note that the solid settled again without dissolving.",
+      "guidance": "Use the scene and the trial summary as evidence.",
+      "responseType": "text",
+      "minimumEvidence": { "type": "text", "minEntries": 1 }
+    },
+    {
+      "id": "analyse",
+      "title": "Analyse patterns",
+      "prompt": "What pattern do you see between particle behaviour and dissolving speed?",
+      "guidance": "Compare trials rather than describing only one result.",
+      "responseType": "text",
+      "minimumEvidence": { "type": "analysis", "minEntries": 1 }
+    },
+    {
+      "id": "conclusion",
+      "title": "Conclude with evidence",
+      "prompt": "Answer the original question using trial evidence.",
+      "guidance": "Quote at least one measured time and explain whether the solid dissolved or settled.",
+      "responseType": "text",
+      "minimumEvidence": { "type": "text", "minEntries": 1 }
+    },
+    {
+      "id": "evaluate",
+      "title": "Evaluate the method",
+      "prompt": "How could this dissolving test be made more reliable?",
+      "guidance": "Think about repeats, timing accuracy and control variables.",
+      "responseType": "text",
+      "minimumEvidence": { "type": "text", "minEntries": 1 }
+    }
+  ],
+  "recordingModes": ["short-text", "simple-table", "labelled-note"],
+  "teacherNotes": [
+    "Use the procedural scene to discuss particle models as simplifications rather than exact reality.",
+    "Ask pupils to justify whether a residue counts as evidence that a substance has not dissolved."
+  ],
+  "safetyNote": "Remind pupils that the scene models hot water safely, but real hot water investigations require adult supervision and heat-safe equipment.",
+  "misconceptionChecks": [
+    "Dissolving is not the same as disappearing completely.",
+    "A substance can mix into a solution and still be present."
+  ],
+  "supportsNarration": true,
+  "estimatedDuration": 30,
+  "performanceTier": "enhanced",
+  "hero": {
+    "eyebrow": "Year 5 particles and mixtures",
+    "blurb": "Watch solids break apart in a procedural beaker scene and compare how conditions change dissolving time.",
+    "accent": "#ec7f46"
+  }
+}

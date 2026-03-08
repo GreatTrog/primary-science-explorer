@@ -1,0 +1,820 @@
+Primary Science Explorer interactive
+investigations for web simulation
+Executive summary
+Download the PDF report
+1
+This report specifies a curriculum-mapped catalogue of interactive experiments and investigations that
+can be simulated in a web application to support “working scientifically” across primary science in
+England . The mapping uses the statutory year-by-year science programmes of study for Years 1–6,
+plus Reception alignment through the current EYFS “The Natural World” Early Learning Goal. 
+2
+The design premise is that the app should not treat “working scientifically” as a bolt-on mini-game. The
+statutory guidance explicitly positions “working scientifically” as something that must be taught
+through substantive science content rather than as a separate strand, with pupils learning via different
+enquiry types (e.g., observing over time, pattern seeking, identifying/classifying, comparative/fair
+testing, and secondary research). 
+3
+The catalogue contains one “anchor” interactive investigation for every curriculum area in each year
+group (Years 1–6), and a Reception-aligned set based on the EYFS “Natural World” statements. Each
+investigation specification includes: description, intended learning outcomes, variables, user
+interactions, web feasibility notes, assessment/extension ideas, safety notes, and an estimated
+development complexity (low/medium/high). 
+4
+Evidence from research syntheses and reviews indicates that computer simulations can improve science
+learning outcomes versus some traditional approaches, but that unguided discovery can be inefficient
+and error-prone without scaffolds (prompts, constraints, feedback, and opportunities to explain). 
+This report therefore recommends a “guided enquiry” UX model: pupils still make decisions and run
+trials, but the app structures the enquiry cycle and makes variables, data capture, repetition, and
+reporting unavoidable rather than optional. 
+6
+Curriculum foundations and mapping approach
+Primary statutory sources
+7
+5
+The science programmes of study for Key Stages 1 and 2 define year-by-year substantive content and
+the “working scientifically” expectations for KS1 (Years 1–2), lower KS2 (Years 3–4), and upper KS2 (Years
+5–6). 
+For Reception, science is not specified as a discrete national curriculum subject, so the mapping is
+anchored in the EYFS statutory framework, specifically the Early Learning Goal (ELG) “The Natural
+World” (exploration and observation of animals/plants; contrasting environments; seasons; and
+changing states of matter). 
+8
+1
+The national curriculum also notes that “most of the learning about science should be done through the
+use of first-hand practical experiences” while still using appropriate secondary sources (books,
+photographs, videos). This matters for product positioning: the app should be framed as (a) preparation
+for practical work, (b) consolidation, and (c) widening access when practical constraints exist—not as a
+replacement for hands-on science. 
+9
+Working scientifically objective codes used in this report
+To keep the mapping explicit (and table-friendly), each statutory objective is coded below. 
+KS1 (Years 1–2)
+KS1-1 Ask simple questions; recognise they can be answered in different ways.
+KS1-2 Observe closely using simple equipment.
+KS1-3 Perform simple tests.
+KS1-4 Identify and classify.
+KS1-5 Use observations and ideas to suggest answers.
+KS1-6 Gather and record data to help answer questions. 
+Lower KS2 (Years 3–4)
+9
+9
+LKS2-1 Ask relevant questions; use different types of scientific enquiries.
+LKS2-2 Set up simple practical enquiries, comparative and fair tests.
+LKS2-3 Make systematic/careful observations; take accurate measurements using standard units and
+equipment (including thermometers and data loggers).
+LKS2-4 Gather, record, classify and present data in a variety of ways.
+LKS2-5 Use results to draw simple conclusions, make predictions, suggest improvements/new
+questions.
+LKS2-6 Identify differences/similarities/changes related to simple scientific ideas/processes.
+LKS2-7 Use straightforward scientific evidence to answer questions or support findings. 
+Upper KS2 (Years 5–6)
+9
+UKS2-1 Plan enquiries; recognise/control variables where necessary.
+UKS2-2 Take measurements with increasing accuracy/precision; repeat readings when appropriate.
+UKS2-3 Record data/results using diagrams/labels, keys, tables, scatter graphs, bar and line graphs.
+UKS2-4 Use test results to make predictions for further comparative/fair tests.
+UKS2-5 Report/present findings (conclusions, causal relationships/explanations, degree of trust).
+UKS2-6 Identify scientific evidence used to support/refute ideas/arguments. 
+9
+Curriculum areas by year group covered
+The year-by-year curriculum areas covered in this report are those listed in the statutory science
+programmes of study for KS1 and KS2. 
+7
+Evidence-informed design patterns for web simulations
+10
+Research reviews and meta-analyses report positive learning impacts from science simulations in many
+contexts, including conceptual understanding and process skills.  At the same time, classic review
+evidence warns that “pure discovery” in simulation environments can lead to confusion, weak
+strategies, and inefficient learning without instructional supports; the best outcomes generally emerge
+when simulations are combined with scaffolding and opportunities to articulate explanations. 
+6
+2
+A practical implication for a Primary Science Explorer app is to “productise scaffolding” so it is built into
+the interaction model rather than being dependent on the teacher’s real-time intervention.
+Core enquiry loop UX
+flowchart TD
+A[Pick year group & topic] --> B[Choose or write a question]
+B --> C[Plan: what to change / measure / keep same]
+C --> D[Run trial]
+D --> E[Record: table + notes]
+E --> F[Analyse: charts or sorting]
+F --> G[Conclusion with evidence]
+G --> H[Reflect: reliability + next question]
+H --> I[Save/share report]
+The “types of scientific enquiry” language used in UK primary practice (observing over time; pattern
+seeking; identifying/classifying; comparative/fair testing; researching using secondary sources) aligns
+well with this loop and can be used as a navigation taxonomy. 
+11
+Simulation interaction patterns by key stage
+In KS1, interactions should bias toward concrete choices (icons, drag-sort, “run test” button) and
+simple recording (tally marks, pictograms), reflecting the KS1 objectives around simple questions,
+observations, tests, classifying, and recording. 
+9
+In KS2, the app can progressively introduce:- explicit variable panels (independent/dependent/controls),- repeated trials and simple averaging, and- richer data visualisation (bar/line graphs, and in UKS2 potentially scatter graphs). 
+Technical feasibility notes and web standards
+12
+9
+Most proposed simulations can be implemented with standard web platform capabilities: - 2D
+interactive scenes and measurement overlays: HTML Canvas 2D is a common approach for drawing and
+interaction. - Sound investigations: the Web Audio API supports synthesising tones (e.g., oscillator sources) suitable
+for pitch/volume experiments with appropriate volume limiting and defaults. - Accessibility: for school-facing/public-sector-aligned products, WCAG 2.2 is a widely referenced
+baseline; provide keyboard alternatives for dragging, clear focus order, and non-audio alternatives for
+key information. 
+13
+14
+Safety framing for simulated investigations
+Even though simulations avoid many hazards, the app should still model good scientific practice: risk
+awareness, safe choices in “real-world extension” prompts, and age-appropriate warnings (e.g., not
+looking at the sun). The safety notes in this report align with UK school practice that activities requiring
+PPE are often not suitable for typical primary classrooms without specialist controls, and that risk
+assessment should be routine. 
+15
+3
+Table summarising investigations by year group, curriculum
+area, objectives, and complexity
+The table below lists one anchor investigation per curriculum area (Years 1–6) plus Reception alignment
+to EYFS “The Natural World”. Curriculum areas and “working scientifically” expectations derive from
+statutory documentation. 
+4
+Year group
+Curriculum area
+Interactive
+investigation
+Working
+scientifically
+objective(s)
+Complexity
+Reception/
+KS1
+EYFS Natural World:
+observing animals
+and plants
+Virtual Nature Walk
+Journal
+KS1-1, KS1-2,
+KS1-4, KS1-6
+Medium
+Reception/
+KS1
+EYFS Natural World:
+contrasting
+environments
+Habitat Match and
+Explain
+KS1-1, KS1-4,
+KS1-5
+Low
+Reception/
+KS1
+EYFS Natural World:
+seasons and change
+Seasons Explorer and
+Weather Diary
+KS1-2, KS1-5,
+KS1-6
+Medium
+Reception/
+KS1
+EYFS Natural World:
+changing states of
+matter
+Melting and Freezing
+Kitchen Lab
+KS1-1, KS1-2,
+KS1-3, KS1-6
+Medium
+Year 1
+Plants
+Seed-to-Seedling
+Growth Lab
+KS1-1, KS1-2,
+KS1-3, KS1-5,
+KS1-6
+Medium
+Year 1
+Animals including
+humans
+Senses Sorting and
+“Which Sense Helps
+Most?” Test
+KS1-1, KS1-2,
+KS1-3, KS1-4,
+KS1-6
+Low
+Year 1
+Everyday materials
+Material Properties
+Test Bench
+KS1-1, KS1-3,
+KS1-4, KS1-5,
+KS1-6
+Low
+Year 1
+Seasonal changes
+Daylight Tracker and
+Weather Patterns
+KS1-2, KS1-5,
+KS1-6
+Medium
+Year 2
+Living things and
+habitats
+Microhabitat Explorer
++ Alive/Dead/Never
+Alive Sort
+KS1-1, KS1-2,
+KS1-4, KS1-5,
+KS1-6
+Medium
+Year 2
+Plants
+Seed Dispersal
+Simulator
+KS1-1, KS1-3,
+KS1-5, KS1-6
+Medium
+Year 2
+Animals including
+humans
+Healthy Choices
+Planner
+KS1-1, KS1-4,
+KS1-5, KS1-6
+Low
+Year 2
+Uses of everyday
+materials
+Materials Engineering:
+Build a Bridge
+KS1-1, KS1-3,
+KS1-5, KS1-6
+Medium
+4
+Year group Curriculum area Interactive
+investigation
+Working
+scientifically
+objective(s)
+Complexity
+Year 3 Plants Transpiration Tracker
+LKS2-1, LKS2-2,
+LKS2-3, LKS2-4,
+LKS2-5
+High
+Year 3 Animals including
+humans
+Skeleton & Muscles:
+Move the Joint Lab
+LKS2-1, LKS2-3,
+LKS2-4, LKS2-6,
+LKS2-7
+High
+Year 3 Rocks
+Rock Detective:
+Properties and
+Formation
+LKS2-1, LKS2-3,
+LKS2-4, LKS2-6 Medium
+Year 3 Light Shadow Length and
+Torch Distance Lab
+LKS2-1, LKS2-2,
+LKS2-3, LKS2-4,
+LKS2-5
+Medium
+Year 3 Forces and magnets Magnet Maze
+LKS2-1, LKS2-2,
+LKS2-3, LKS2-4,
+LKS2-5
+High
+Year 4 Living things and
+habitats Build-a-Branching Key LKS2-1, LKS2-4,
+LKS2-6, LKS2-7 Medium
+Year 4 Animals including
+humans
+Teeth and Decay
+Investigation
+LKS2-1, LKS2-3,
+LKS2-4, LKS2-5,
+LKS2-7
+Medium
+Year 4 States of matter Heating/Cooling and
+Particle View
+LKS2-1, LKS2-3,
+LKS2-4, LKS2-5,
+LKS2-6
+High
+Year 4 Sound Pitch, Volume and
+Wave Viewer
+LKS2-1, LKS2-3,
+LKS2-4, LKS2-5 High
+Year 4 Electricity Simple Circuits Builder
+LKS2-1, LKS2-2,
+LKS2-4, LKS2-5,
+LKS2-7
+High
+Year 5 Living things and
+habitats
+Ecosystem Balance
+Model
+UKS2-1, UKS2-3,
+UKS2-4, UKS2-5,
+UKS2-6
+High
+Year 5 Animals including
+humans
+Human Development
+Timeline and Growth
+Data Lab
+UKS2-3, UKS2-5,
+UKS2-6 Medium
+Year 5 Properties & changes
+of materials
+Dissolving and
+Separating Mixtures
+Lab
+UKS2-1, UKS2-2,
+UKS2-3, UKS2-4,
+UKS2-5
+High
+Year 5 Earth and space Earth–Moon–Sun
+Motion Simulator
+UKS2-3, UKS2-5,
+UKS2-6 High
+5
+Year group
+Curriculum area
+Interactive
+investigation
+Working
+scientifically
+objective(s)
+Complexity
+Year 5
+Forces
+Parachute Drop Air
+Resistance Lab
+UKS2-1, UKS2-2,
+UKS2-3, UKS2-4,
+UKS2-5
+High
+Year 6
+Living things and
+habitats
+Microorganism and
+Classification Key
+Challenge
+UKS2-1, UKS2-3,
+UKS2-5, UKS2-6
+Medium
+Year 6
+Animals including
+humans
+Circulatory System
+Pump and Pulse
+Investigation
+UKS2-1, UKS2-2,
+UKS2-3, UKS2-5
+High
+Year 6
+Evolution and
+inheritance
+Natural Selection
+Simulator
+UKS2-1, UKS2-3,
+UKS2-4, UKS2-5,
+UKS2-6
+High
+Year 6
+Light
+Medium
+Year 6
+Electricity
+Periscope and
+Reflection Ray Lab
+Voltage, Brightness
+and Resistance
+Investigation
+Year-by-year investigation catalogue
+UKS2-1, UKS2-3,
+UKS2-5, UKS2-6
+UKS2-1, UKS2-2,
+UKS2-3, UKS2-5,
+UKS2-6
+High
+The detailed specifications are provided in the PDF. Below is the same catalogue in-text for quick
+scanning, organised by year group and curriculum area. Curriculum areas and “working scientifically”
+statements are from statutory sources. 
+4
+Reception and KS1 readiness
+Reception mapping uses the EYFS ELG “The Natural World” statements (observation/drawing of animals
+and plants; contrasting environments; seasons; and changing states of matter). 
+16
+EYFS Natural World – observing animals and plants: Virtual Nature Walk Journal
+Brief description: tappable interactive scenes (park/pond/woodland) where children observe and then
+draw/label finds in a “journal”.
+Working scientifically: KS1-1, KS1-2, KS1-4, KS1-6.
+Learning outcomes: careful observation, early classification, begin recording as evidence.
+Inputs/variables: scene, zoom, optional “hint” overlays.
+User interactions: tap-to-inspect, draw on canvas, drag labels, simple sorting.
+Feasibility notes: 2D canvas drawing and asset library; store outputs locally/cloud; light randomisation
+for variety.
+Assessment/extension: tally charts of finds; compare scenes; teacher view of journal artifacts.
+Safety notes: digital none; real-world pairing emphasises hygiene and respectful handling.
+Complexity: medium.
+6
+EYFS Natural World – contrasting environments: Habitat Match and Explain
+Brief description: drag organisms into habitats; justify choices using simple evidence cards.
+Working scientifically: KS1-1, KS1-4, KS1-5.
+Learning outcomes: explain simple needs; relate visible features to environment.
+Inputs/variables: habitat type; feature toggles like “fur/waxy leaves”.
+User interactions: drag-drop; “Why?” reveal; sentence stems.
+Feasibility notes: rule-based outcomes (lookup tables) with animations.
+Assessment/extension: capture justification choices; “change one thing” challenge (add shade/water).
+Safety notes: digital none; real-world extension about not moving organisms between habitats.
+Complexity: low.
+EYFS Natural World – seasons and change: Seasons Explorer and Weather Diary
+Brief description: month slider changes daylight/weather; children log daily icons.
+Working scientifically: KS1-2, KS1-5, KS1-6.
+Learning outcomes: recognise seasonal patterns; record and interpret simple charts.
+Inputs/variables: month/day; location preset.
+User interactions: sliders; icon logging; pictograms/bar charts.
+Feasibility notes: precomputed sunrise/sunset for UK; local/offline storage.
+Assessment/extension: questions about longest days; links to buds/migration.
+Safety notes: reinforce “don’t look at the sun” in real observations. 
+Complexity: medium.
+9
+EYFS Natural World – changing states of matter: Melting and Freezing Kitchen Lab
+Brief description: heat/cool familiar materials; record time to change.
+Working scientifically: KS1-1, KS1-2, KS1-3, KS1-6.
+Learning outcomes: describe change; do a simple comparative test; record outcomes.
+Inputs/variables: material; temperature; container type (optional).
+User interactions: thermometer slider; timer; table of results; repeat trials.
+Feasibility notes: time-series state-change model + animation; small randomness.
+Assessment/extension: predictions; “keep everything else the same”; insulation.
+Safety notes: if mirrored physically, manage hot-water risks and follow risk assessment. 
+Complexity: medium.
+Year 1
+17
+Year 1 curriculum areas: Plants; Animals including humans; Everyday materials; Seasonal changes. 
+Plants: Seed-to-Seedling Growth Lab
+Description: choose water/light and observe a seedling grow across simulated days.
+WS links: KS1-1, KS1-2, KS1-3, KS1-5, KS1-6.
+Outcomes: identify parts, recognise needs, compare conditions using recorded data.
+Variables: water, light, (optional) temperature.
+Interactions: set conditions → run time-lapse → measure height → record/compare.
+Tech: simple growth model; charts; repeat runs.
+Assessment/extension: justify “best conditions”; add “too much water” counterexample.
+Safety: real-world link—soil hygiene.
+Complexity: medium.
+Animals including humans: Senses Sorting and “Which Sense Helps Most?” Test
+Description: match sense organs, then identify objects with limited clues and record times/scores.
+WS links: KS1-1, KS1-2, KS1-3, KS1-4, KS1-6.
+9
+7
+Outcomes: five senses; simple testing; fairness (same objects each trial).
+Variables: clue availability; object set.
+Interactions: drag-match; timed rounds; pictogram results.
+Tech: controlled asset library; timer; accessibility captions.
+Assessment/extension: compare conditions; introduce repeats to reduce chance.
+Safety: real-world hygiene/allergies.
+Complexity: low.
+Everyday materials: Material Properties Test Bench
+Description: run virtual tests (bend/soak/see-through) then group materials by properties.
+WS links: KS1-1, KS1-3, KS1-4, KS1-5, KS1-6.
+Outcomes: property vocabulary; distinguish object vs material; classify using evidence.
+Variables: material; test type.
+Interactions: run test; drag-sort into groups.
+Tech: rule-based test outcomes with animations.
+Assessment/extension: “best material for…” justification; discuss trade-offs.
+Safety: mention glass/sharp edges for real materials.
+Complexity: low.
+Seasonal changes: Daylight Tracker and Weather Patterns
+Description: record weather icons and explore daylight change across months with charts.
+WS links: KS1-2, KS1-5, KS1-6.
+Outcomes: observe patterns; interpret simple bar chart.
+Variables: month; location.
+Interactions: log; slider; answer prompts.
+Tech: precomputed daylight; storage; charts.
+Assessment/extension: compare locations conceptually.
+Safety: don’t look at the sun directly. 
+Complexity: medium.
+9
+Year 2
+9
+Year 2 curriculum areas: Living things and their habitats; Plants; Animals including humans; Uses of
+everyday materials. 
+Living things and habitats: Microhabitat Explorer + Alive/Dead/Never Alive Sort
+WS links: KS1-1, KS1-2, KS1-4, KS1-5, KS1-6.
+Core: discover organisms in log/pond/compost microhabitats and classify/record.
+Variables: weather toggles visibility.
+Interactions: tap-to-find; drag-sort; tally chart.
+Tech: layered scenes + spawn rules.
+Assessment/extension: explain “why here”; add “disturbance” to observe changes.
+Safety: soil/compost hygiene in physical work.
+Complexity: medium.
+Plants: Seed Dispersal Simulator
+WS links: KS1-1, KS1-3, KS1-5, KS1-6.
+Core: compare seed types in wind/animal scenarios; measure distance; repeat trials.
+Variables: seed type; wind strength.
+Interactions: run trials; record; average.
+Tech: lightweight physics or precomputed distributions.
+8
+Assessment/extension: justify best dispersal for conditions; discuss variability.
+Safety: allergy/ingestion caution for real seeds.
+Complexity: medium.
+Animals including humans: Healthy Choices Planner
+WS links: KS1-1, KS1-4, KS1-5, KS1-6.
+Core: plan food/exercise/hygiene for a character then compare wellbeing outcomes.
+Variables: choices and durations.
+Interactions: drag foods; select activities; dashboard review.
+Tech: rule-based scoring; non-stigmatising language.
+Assessment/extension: compare plans; introduce “germs” concept carefully.
+Safety: safe exercise in physical extension.
+Complexity: low.
+Uses of everyday materials: Materials Engineering – Build a Bridge
+WS links: KS1-1, KS1-3, KS1-5, KS1-6.
+Core: choose materials/shapes; test max load; compare designs fairly.
+Variables: material; geometry; thickness.
+Interactions: build; add weights; record breaking point.
+Tech: rule-based structural model + deformation animation.
+Assessment/extension: evidence-based “best design”; add cost/eco trade-off.
+Safety: manage weights safely in physical version.
+Complexity: medium.
+Year 3
+Year 3 curriculum areas: Plants; Animals including humans; Rocks; Light; Forces and magnets. 
+Plants: Transpiration Tracker
+WS links: LKS2-1, LKS2-2, LKS2-3, LKS2-4, LKS2-5.
+Core: set sun/wind/temp and measure water loss over time; compare runs.
+Variables: light, wind, temperature, humidity.
+Interactions: plan test; take readings; line graph; conclusion.
+Tech: time-series model with repeat-run and “control”.
+Assessment/extension: structured conclusion + improvements.
+Safety: plant safety/hygiene for real work.
+Complexity: high.
+Animals including humans: Skeleton & Muscles – Move the Joint Lab
+WS links: LKS2-1, LKS2-3, LKS2-4, LKS2-6, LKS2-7.
+Core: test joint types and movement; record observations.
+Variables: joint type; force.
+Interactions: drag to move; label diagrams; tasks.
+Tech: constraint-based animation (2D/3D).
+Assessment/extension: justify which joint suits which movement; compare animals.
+Safety: safe stretching/avoid forcing joints physically.
+Complexity: high.
+Rocks: Rock Detective
+WS links: LKS2-1, LKS2-3, LKS2-4, LKS2-6.
+Core: scratch/permeability/zoom tests then classify; explain with evidence.
+9
+9
+Variables: rock sample; tests.
+Interactions: test tools; branching key; profile card.
+Tech: dataset-driven, no chemicals.
+Assessment/extension: two-evidence justification; weathering slider.
+Safety: avoid licking rocks; no acid tests.
+Complexity: medium.
+Light: Shadow Length and Torch Distance Lab
+WS links: LKS2-1, LKS2-2, LKS2-3, LKS2-4, LKS2-5.
+Core: change torch distance/angle; measure shadows; graph pattern.
+Variables: distance, angle, object size.
+Interactions: drag objects; ruler; data logging; prediction test.
+Tech: 2D ray casting + graphing.
+Assessment/extension: pattern statement; compare small vs large sources.
+Safety: avoid bright lights in eyes.
+Complexity: medium.
+Forces and magnets: Magnet Maze
+WS links: LKS2-1, LKS2-2, LKS2-3, LKS2-4, LKS2-5.
+Core: play then measure distance-to-movement under controlled setups.
+Variables: magnet strength; distance; pole orientation.
+Interactions: test mode with measurements; table; conclusion.
+Tech: simplified force model; careful UX for measuring.
+Assessment/extension: classify materials magnetic/non-magnetic by evidence.
+Safety: small magnet ingestion hazards in real life.
+Complexity: high.
+Year 4
+9
+Year 4 curriculum areas: Living things and their habitats; Animals including humans; States of matter;
+Sound; Electricity. 
+Living things and habitats: Build-a-Branching Key
+WS links: LKS2-1, LKS2-4, LKS2-6, LKS2-7.
+Core: build and refine a key based on misclassifications.
+Variables: chosen features and questions.
+Interactions: flow builder; test; revise; export.
+Tech: tree structure + accessible drag alternatives (keyboard). 
+Assessment/extension: accuracy and efficiency; collaborative merge.
+Safety: outdoor sampling hygiene if extended.
+Complexity: medium.
+Animals including humans: Teeth and Decay Investigation
+WS links: LKS2-1, LKS2-3, LKS2-4, LKS2-5, LKS2-7.
+18
+Core: compare scenarios (diet/brushing) over time; interpret graph.
+Variables: sugar level; brushing frequency; time.
+Interactions: plan week; run; compare; conclusion.
+Tech: time-series plaque model + visual overlay.
+Assessment/extension: evidence-based advice; discuss evidence limits.
+Safety: safe materials/hygiene for physical models.
+Complexity: medium.
+10
+States of matter: Heating/Cooling and Particle View
+WS links: LKS2-1, LKS2-3, LKS2-4, LKS2-5, LKS2-6.
+Core: record temperature-time data and connect to particle model.
+Variables: substance; heating rate.
+Interactions: thermometer; readings; graph; explanation.
+Tech: time-series thermal model + particle animation (canvas). 
+Assessment/extension: explain with model; link to evaporation/condensation.
+Safety: hot water/heating caution in real life and risk assessment. 
+Complexity: high.
+12
+Sound: Pitch, Volume and Wave Viewer
+WS links: LKS2-1, LKS2-3, LKS2-4, LKS2-5.
+Core: change length/frequency and record pitch; see waveform.
+Variables: frequency; amplitude; instrument length.
+17
+Interactions: sliders; play; waveform; comparative tests.
+Tech: Web Audio oscillator + waveform canvas; safe volume limits. 
+Assessment/extension: identify variable affecting pitch; sound insulation mini-task.
+Safety: volume limiter/mute defaults.
+19
+Complexity: high.
+Electricity: Simple Circuits Builder
+WS links: LKS2-1, LKS2-2, LKS2-4, LKS2-5, LKS2-7.
+Core: build series circuits; test what works; fault-find.
+Variables: components; cells (limited); switch state.
+Interactions: drag components; connect; observe brightness; troubleshoot.
+Tech: constrained circuit solver (series).
+Assessment/extension: “fix the circuit”; introduce conductor/insulator decisions.
+Safety: reinforce low-voltage-only in physical extension.
+Complexity: high.
+Year 5
+Year 5 curriculum areas: Living things and their habitats; Animals including humans; Properties and
+changes of materials; Earth and space; Forces. 
+9
+Living things and habitats: Ecosystem Balance Model
+WS links: UKS2-1, UKS2-3, UKS2-4, UKS2-5, UKS2-6.
+Core: adjust ecosystem parameters; compare graphs; evaluate claims.
+Variables: food, predators, habitat quality, human impact toggles.
+Interactions: multi-run comparisons; annotate events; export graphs.
+Tech: simplified population model; show assumptions explicitly.
+Assessment/extension: support/refute statements with evidence; discuss trust and run-to-run variation.
+Safety: none digital.
+Complexity: high.
+Animals including humans: Human Development Timeline and Growth Data Lab
+WS links: UKS2-3, UKS2-5, UKS2-6.
+Core: build lifecycle timeline; interpret anonymised growth data; create report.
+Variables: dataset choice; (teacher-controlled) sensitive content toggles.
+Interactions: drag timeline; compare graphs; report builder.
+Tech: data viz heavy; privacy-first (no personal data entry).
+11
+Assessment/extension: evidence-based “people grow differently” conclusion; compare another mammal
+lifecycle.
+Safety: pastoral sensitivity and school policy alignment.
+Complexity: medium.
+Properties and changes of materials: Dissolving and Separating Mixtures Lab
+WS links: UKS2-1, UKS2-2, UKS2-3, UKS2-4, UKS2-5.
+Core: run dissolving fair tests and then design separation pipelines.
+Variables: temperature, stirring, grain size; mixture components.
+Interactions: plan test; record dissolve time; graph; build separation flow.
+Tech: kinetics-lite + rule-based separation; strong reporting scaffolds.
+Assessment/extension: justify method; repeat readings; discuss purity vs recovery.
+Safety: physical extension needs heating/hot water controls and risk assessment. 
+Complexity: high.
+Earth and space: Earth–Moon–Sun Motion Simulator
+17
+WS links: UKS2-3, UKS2-5, UKS2-6.
+Core: use a model to explain day/night and phases; rebut misconceptions with evidence.
+Variables: time; viewpoint; tilt toggle.
+Interactions: scrub time; label snapshots; explanation tasks.
+Tech: 2D vector or WebGL; “flat view” for conceptual clarity.
+Assessment/extension: misconception rebuttal using captured evidence.
+Safety: remind not to look at the sun. 
+Complexity: high.
+9
+Forces: Parachute Drop Air Resistance Lab
+WS links: UKS2-1, UKS2-2, UKS2-3, UKS2-4, UKS2-5.
+Core: change canopy size/material; measure fall time/velocity; graph.
+Variables: canopy size, drag coefficient, mass, height.
+Interactions: run trials; read graphs; predict next design.
+Tech: numerical physics simulation with clear UI and graphing.
+Assessment/extension: evidence-backed design choice; reliability via repeats.
+Safety: safe dropping protocols for physical extension.
+Complexity: high.
+Year 6
+Year 6 curriculum areas: Living things and their habitats; Animals including humans; Evolution and
+inheritance; Light; Electricity. 
+9
+Living things and habitats: Microorganism and Classification Key Challenge
+WS links: UKS2-1, UKS2-3, UKS2-5, UKS2-6.
+Core: build keys using evidence cards; evaluate and revise groupings.
+Variables: organism set; feature list; evidence pack.
+Interactions: key builder; justification writing; counterexample challenges.
+Tech: dataset + UI; scaffolding around “evidence supports/refutes”.
+Assessment/extension: debate how new evidence changes classification.
+Safety: clarify that culturing microbes needs specialist controls.
+Complexity: medium.
+12
+Animals including humans: Circulatory System Pump and Pulse Investigation
+WS links: UKS2-1, UKS2-2, UKS2-3, UKS2-5.
+Core: vary activity intensity/duration and log pulse recovery; compare profiles.
+Variables: intensity, duration, “fitness profile”, measurement noise toggle.
+Interactions: data logging; line graphs; report builder; evaluate trust in results.
+Tech: time-series physiology model + charts.
+Assessment/extension: explain variable control and repeat readings; link to lifestyle factors carefully.
+Safety: safe exercise/inclusion in physical extension.
+Complexity: high.
+Evolution and inheritance: Natural Selection Simulator
+WS links: UKS2-1, UKS2-3, UKS2-4, UKS2-5, UKS2-6.
+Core: run multiple generations; track trait frequencies; refute misconceptions like “animals choose to
+adapt”.
+Variables: trait distribution; environmental background; predation pressure; mutation rate.
+Interactions: hypothesis → repeated runs → compare graphs → conclusion with uncertainty.
+Tech: agent-based or probabilistic model; needs “repeat/average runs” to teach randomness.
+Assessment/extension: critique claims using evidence; optional application contexts with careful
+framing.
+Safety: ensure framing avoids eugenics narratives; focus on natural variation and survival.
+Complexity: high.
+Light: Periscope and Reflection Ray Lab
+WS links: UKS2-1, UKS2-3, UKS2-5, UKS2-6.
+Core: place mirrors; trace rays; create labelled diagrams as evidence.
+Variables: mirror angles; positions.
+Interactions: drag mirrors; ray tracing; diagram drawing/export.
+Tech: 2D ray tracer + drawing canvas.
+Assessment/extension: compare multi-reflections; discuss alternative designs conceptually.
+Safety: avoid shining lasers/bright light into eyes in real life.
+Complexity: medium.
+Electricity: Voltage, Brightness and Resistance Investigation
+WS links: UKS2-1, UKS2-2, UKS2-3, UKS2-5, UKS2-6.
+Core: vary cells and resistance presets; log meter readings; graph outcomes; justify.
+Variables: voltage (cells), resistance, circuit layout (extension).
+Interactions: build; measure; record; line graphs; explanation with evidence.
+Tech: simplified DC solver with guardrails (conceptual focus); built-in meters and exports.
+Assessment/extension: design a “dimmer”; justify with evidence and limitations.
+Safety: physical extension reinforces low-voltage-only practice.
+Complexity: high.
+References
+Statutory curriculum sources for year-by-year science content and working scientifically: 
+Reception (EYFS) statutory sources used for alignment: 
+8
+Evidence syntheses and key studies on simulation-based science learning: 
+20
+7
+13
+Primary enquiry taxonomy support resource: Primary Science Teaching Trust . 
+21
+Safety and risk assessment guidance sources: CLEAPSS . 
+23
+15
+Accessibility and core web API sources: W3C , MDN Web Docs . 
+24
+25
+26
+22
+1
+5
+10
+20
+https://eric.ed.gov/?id=EJ993847
+https://eric.ed.gov/?id=EJ993847
+2
+3
+4
+7
+9
+21
+23
+25
+https://www.gov.uk/government/publications/national-curriculum-in
+england-science-programmes-of-study/national-curriculum-in-england-science-programmes-of-study
+https://www.gov.uk/government/publications/national-curriculum-in-england-science-programmes-of-study/national
+curriculum-in-england-science-programmes-of-study
+6
+https://journals.sagepub.com/doi/10.3102/00346543068002179
+https://journals.sagepub.com/doi/10.3102/00346543068002179
+8
+16
+24
+https://assets.publishing.service.gov.uk/media/68c024cb8c6d992f23edd79c/
+Early_years_foundation_stage_statutory_framework_-_for_group_and_school-based_providers.pdf.pdf
+https://assets.publishing.service.gov.uk/media/68c024cb8c6d992f23edd79c/
+Early_years_foundation_stage_statutory_framework_-_for_group_and_school-based_providers.pdf.pdf
+11
+https://assets.publishing.service.gov.uk/media/5a806ebd40f0b62305b8b1fa/
+PRIMARY_national_curriculum_-_Science.pdf
+https://assets.publishing.service.gov.uk/media/5a806ebd40f0b62305b8b1fa/PRIMARY_national_curriculum_-_Science.pdf
+12
+https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D
+https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D
+13
+19
+https://developer.mozilla.org/en-US/docs/Web/API/OscillatorNode
+https://developer.mozilla.org/en-US/docs/Web/API/OscillatorNode
+14
+18
+26
+https://www.w3.org/TR/WCAG22/
+https://www.w3.org/TR/WCAG22/
+15
+17
+https://primary.cleapss.org.uk/resource-file/p137-how-to-do-a-risk-assessment.pdf
+https://primary.cleapss.org.uk/resource-file/p137-how-to-do-a-risk-assessment.pdf
+22
+https://pstt.org.uk/resources/enquiry-approaches/
+https://pstt.org.uk/resources/enquiry-approaches/
+14

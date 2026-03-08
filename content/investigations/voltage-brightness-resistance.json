@@ -1,0 +1,144 @@
+{
+  "schemaVersion": 2,
+  "id": "voltage-brightness-resistance",
+  "slug": "voltage-brightness-resistance",
+  "title": "Cells, Bulbs and Buzzers Circuit Lab",
+  "yearGroup": "Year 6",
+  "ageBand": "UKS2",
+  "curriculumArea": "Electricity",
+  "topicKeywords": ["electricity", "cells", "bulb", "buzzer", "complete circuit"],
+  "enquiryType": "Comparative and fair testing",
+  "wsObjectives": [
+    "Plan variable-based tests",
+    "Use evidence from repeated runs",
+    "Explain outcomes with scientific ideas"
+  ],
+  "difficulty": "core",
+  "sceneFamily": "circuits_energy",
+  "sceneConfig": {
+    "family": "circuits_energy",
+    "payload": {
+      "cells": [
+        { "id": "one-cell", "label": "1 cell", "voltage": 1.5 },
+        { "id": "two-cells", "label": "2 cells", "voltage": 3.0 },
+        { "id": "three-cells", "label": "3 cells", "voltage": 4.5 }
+      ],
+      "outputs": [
+        { "id": "bulb", "label": "Bulb", "kind": "bulb", "color": "#ffd96f" },
+        { "id": "buzzer", "label": "Buzzer", "kind": "buzzer", "color": "#7fd6ff" }
+      ]
+    }
+  },
+  "cameraPreset": "circuit-lab",
+  "lightingPreset": "bright-lab",
+  "interactionTargets": [
+    { "id": "cells", "label": "Cell selector", "kind": "selector" },
+    { "id": "output", "label": "Output selector", "kind": "selector" },
+    { "id": "power", "label": "Close the complete circuit", "kind": "action" }
+  ],
+  "effectTimelines": [
+    { "id": "glow", "label": "Bulb glow", "description": "Bulb brightness changes as more cells are added to the complete circuit." },
+    { "id": "sound", "label": "Buzzer pulse", "description": "The buzzer vibrates harder and the sound rings expand further as the cell count increases." }
+  ],
+  "trialExtraction": {
+    "primaryMeasure": "effectStrength",
+    "unit": "strength level",
+    "observedFields": ["cellsCount", "effectLabel", "effectStrength"]
+  },
+  "steps": [
+    {
+      "id": "question",
+      "title": "Define the circuit question",
+      "prompt": "How does the number of cells in a complete circuit affect the output device?",
+      "guidance": "Choose whether you want to focus on the bulb or the buzzer.",
+      "responseType": "choice",
+      "options": [
+        { "id": "bulb-brightness", "label": "How does the number of cells affect bulb brightness?" },
+        { "id": "buzzer-volume", "label": "How does the number of cells affect buzzer volume?" }
+      ],
+      "minimumEvidence": { "type": "option", "minEntries": 1 }
+    },
+    {
+      "id": "plan",
+      "title": "Plan variables and controls",
+      "prompt": "Identify what you will change and what you will keep the same in the complete circuit.",
+      "guidance": "A fair test changes one thing and keeps the rest of the circuit setup steady.",
+      "responseType": "choice",
+      "allowMultiple": true,
+      "options": [
+        { "id": "change-cells", "label": "Change the number of cells" },
+        { "id": "same-output", "label": "Keep the same output device" },
+        { "id": "same-wires", "label": "Keep the same wire layout" },
+        { "id": "same-circuit", "label": "Keep the circuit complete each time" }
+      ],
+      "minimumEvidence": { "type": "option", "minEntries": 3 }
+    },
+    {
+      "id": "prediction",
+      "title": "Predict the circuit outcome",
+      "prompt": "Predict how the bulb brightness or buzzer volume will change when more cells are added.",
+      "guidance": "Use the setup preview to think about energy moving around the complete circuit.",
+      "responseType": "text",
+      "sentenceStem": "I predict the output will ___ because ___.",
+      "minimumEvidence": { "type": "text", "minEntries": 1 }
+    },
+    {
+      "id": "simulation",
+      "title": "Run the complete circuit",
+      "prompt": "Choose the number of cells and the output device, then close the complete circuit.",
+      "guidance": "Watch the full wire loop, then focus on the bulb glow or buzzer rings.",
+      "responseType": "simulation",
+      "minimumEvidence": { "type": "trial", "minEntries": 1 }
+    },
+    {
+      "id": "record",
+      "title": "Record what changed",
+      "prompt": "Record how the bulb brightness or buzzer volume changed when the number of cells changed.",
+      "guidance": "Use the full circuit scene and the trial table as evidence.",
+      "responseType": "text",
+      "minimumEvidence": { "type": "text", "minEntries": 1 }
+    },
+    {
+      "id": "analyse",
+      "title": "Analyse the pattern",
+      "prompt": "What pattern do you notice between the number of cells and the output strength?",
+      "guidance": "Compare more than one run.",
+      "responseType": "text",
+      "minimumEvidence": { "type": "analysis", "minEntries": 1 }
+    },
+    {
+      "id": "conclusion",
+      "title": "Conclude from the evidence",
+      "prompt": "Use your observations to explain how changing the number of cells affected the output device.",
+      "guidance": "Refer to the complete circuit and at least one recorded result.",
+      "responseType": "text",
+      "minimumEvidence": { "type": "text", "minEntries": 1 }
+    },
+    {
+      "id": "evaluate",
+      "title": "Evaluate the model",
+      "prompt": "How could this circuit test be improved if you were using real classroom equipment?",
+      "guidance": "Think about repeats, accurate observation and checking the circuit each time.",
+      "responseType": "text",
+      "minimumEvidence": { "type": "text", "minEntries": 1 }
+    }
+  ],
+  "recordingModes": ["short-text", "simple-table", "labelled-note"],
+  "teacherNotes": [
+    "The scene shows a complete circuit all the way round so pupils can talk about current needing a closed loop.",
+    "Use the bulb and buzzer as two familiar KS2 outputs rather than introducing resistance."
+  ],
+  "safetyNote": "Real electrical investigations should use low-voltage classroom equipment and teacher supervision.",
+  "misconceptionChecks": [
+    "The circuit must be complete for the bulb or buzzer to work.",
+    "Adding cells can increase the output without changing the wires or output device."
+  ],
+  "supportsNarration": true,
+  "estimatedDuration": 30,
+  "performanceTier": "enhanced",
+  "hero": {
+    "eyebrow": "Year 6 electricity",
+    "blurb": "Build a complete circuit, change the number of cells and see the bulb glow or buzzer rings respond immediately.",
+    "accent": "#f2b233"
+  }
+}

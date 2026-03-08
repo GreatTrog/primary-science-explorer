@@ -1,0 +1,186 @@
+﻿Primary Science Explorer
+Product Specification for Codex
+
+Interactive web application for primary pupils aged 4–11, covering enquiry-led virtual investigations across EYFS/KS1/KS2.
+Source basis: England science national curriculum (KS1 and KS2), PSTT enquiry skills progression, and the project investigation catalogue. This specification assumes working scientifically is embedded within substantive science content, not presented as a separate mini-game.
+Prepared for: Codex implementation planning
+Audience: product engineer / full-stack developer / UX builder
+Purpose: turn the research and curriculum mapping into a phased, buildable application specification
+
+
+1. Product vision
+Primary Science Explorer is a browser-based science enquiry platform in which pupils carry out age-appropriate virtual investigations linked directly to the England primary science curriculum. The app is designed to help pupils move through the enquiry process from asking questions to evaluating findings, with the level of independence, recording and interpretation carefully adapted for each phase of schooling.
+The product must cover all curriculum areas for science in Years 1–6, with at least one interactive investigation per curriculum area per year group, and should also include a Reception-ready on-ramp aligned to early observation, noticing change and talking about the natural world.
+1.1 Core product principles
+• Enquiry is embedded in content. Pupils learn to work scientifically through plants, animals, materials, light, electricity and other science areas, rather than in a detached generic skill game.
+• The app is guided, not unguided. Pupils make choices, run tests and interpret outcomes, but the interface scaffolds each stage of the enquiry cycle so poor habits are not silently reinforced.
+• The age range matters. A Year 1 investigation should privilege concrete observation, simple sorting and straightforward recording; a Year 6 investigation should support planning, variable control, repeat readings, graphing, explanation and evaluation.
+• Every investigation should feel like doing science. Pupils must change something, observe something, record something, and make sense of evidence.
+• The app supports classroom science rather than replacing it. It should be framed as preparation, rehearsal, consolidation, catch-up, accessibility support and curriculum coverage when real-world practical work is limited.
+1.2 Target users
+• Primary pupils aged 4–11, using pupil mode.
+• Teachers, using teacher mode for assignment, projection, review and export.
+• Developers/content authors, using an investigation definition system that allows new simulations to be added consistently.
+2. Curriculum and pedagogy requirements
+The national curriculum requires working scientifically to be taught through programme of study content, with KS1 pupils asking simple questions, observing closely, performing simple tests, identifying/classifying and gathering/recording simple data; LKS2 pupils then begin setting up simple enquiries, measuring more systematically and presenting data in tables, bar charts and labelled diagrams; UKS2 pupils plan enquiries, consider variables, take repeat readings, use more complex data representations and evaluate trust in results.
+The PSTT enquiry skills guidance frames enquiry as a sequence involving asking questions, making predictions, setting up tests, observing and measuring, recording data, interpreting and communicating results, and evaluating. It also emphasises that teaching may focus on one enquiry skill while still using the others within a practical lesson.
+The project investigation catalogue already maps one anchor simulation to every curriculum area in each year group and recommends a guided enquiry UX model, using enquiry types such as observing over time, pattern seeking, identifying/classifying, comparative/fair testing and research using secondary sources as a useful navigation taxonomy.
+2.1 Enquiry sequence to be implemented in the app
+StagePurpose in appAge adaptationAskChoose, hear or compose the enquiry question.EYFS/KS1 mainly choose from voiced picture prompts; KS2 can type or refine a question.PredictMake a simple or structured prediction, with sentence stems adapted by year group.KS1 uses icon choices or 'I think... because...'; UKS2 can write fuller reasoning.PlanChoose what to change, what to observe/measure, and what to keep the same where appropriate.KS1 chooses simple options; UKS2 explicitly identifies variables and controls.TestRun one or more trials in the simulation.All phases run trials, but complexity of controls and measurements increases through school.RecordCapture observations and results in age-appropriate formats.KS1 uses drawings, tallies, pictograms and simple tables; KS2 extends to labelled diagrams, tables, bar charts, line graphs and scatter graphs where appropriate.InterpretSpot patterns, compare outcomes, and answer the original question using evidence.Younger pupils answer prompt questions orally or with short text; older pupils justify conclusions with evidence.EvaluateReflect on fairness, reliability, anomalies, limits and next steps.KS1 may simply reflect on what was tricky; UKS2 should comment on reliability, repeated readings and improvements.2.2 Curriculum coverage requirement
+The first production-ready release must include the full anchor investigation set already outlined in the project source, covering Reception readiness plus all curriculum areas in Years 1–6. Those anchor investigations are the minimum coverage baseline, not an optional expansion pack.
+PhaseCoverage baselineReception / KS1 readinessVirtual Nature Walk Journal; Habitat Match and Explain; Seasons Explorer and Weather Diary; Melting and Freezing Kitchen LabYear 1Plants; Animals including humans; Everyday materials; Seasonal changesYear 2Living things and habitats; Plants; Animals including humans; Uses of everyday materialsYear 3Plants; Animals including humans; Rocks; Light; Forces and magnetsYear 4Living things and habitats; Animals including humans; States of matter; Sound; ElectricityYear 5Living things and habitats; Animals including humans; Properties and changes of materials; Earth and space; ForcesYear 6Living things and habitats; Animals including humans; Evolution and inheritance; Light; Electricity3. Product scope
+3.1 In scope
+• A web app that runs on common school devices, especially Chromebooks and desktop/laptop browsers.
+• Pupil mode with guided investigations, recording tools, autosave and exports.
+• Teacher mode with launch, assign, preview, review and export functions.
+• A reusable simulation framework so all investigations share a common enquiry shell.
+• Curriculum mapping and metadata so content can be filtered by year group, topic, enquiry type and working scientifically objective.
+• Accessibility features and inclusive interaction models.
+3.2 Out of scope for first release
+• Trying to simulate every possible practical detail with full scientific realism.
+• Open internet research inside the pupil experience.
+• Native mobile apps.
+• High-stakes summative assessment claims.
+• Complex multi-user real-time collaboration.
+4. User experience model
+4.1 Core app structure
+• Home dashboard: choose year group, curriculum area, investigation or assigned task.
+• Investigation shell: the universal workflow wrapper around each simulation.
+• Notebook: stores prediction, planning notes, results, graphs, diagrams and conclusion/evaluation responses.
+• Teacher area: class view, assignment tools, exemplar mode, exports and curriculum coverage reporting.
+4.2 The universal investigation shell
+Every simulation should sit inside one consistent shell so pupils do not have to relearn the interface. The shell should include: question, prediction, plan, simulation workspace, record panel, analysis panel, conclusion prompt, evaluation prompt, and a progress indicator.
+StepUI blockKey behaviourRequired for1QuestionTeacher-set or pupil-selected question card, with narration for younger users.All2PredictionSentence stems, drag choices or typed response.All3PlanSelect variables, controls, equipment or observation focus.KS1 simplified / KS2 fuller4SimulationInteractive model where trials are run.All5RecordAuto-fed results table plus optional notes/drawings.All6AnalyseSorting area, charts, graph tools or prompt cards.All, adapted7ConclusionAnswer original question using evidence.All8EvaluateReliability, fairness, improvements, next question.All, adapted4.3 Age-adaptive UX rules
+• Reception and KS1: icon-rich navigation, audio support, very short text, large controls, minimal simultaneous options, strong modelling, simple recording formats.
+• Years 3 and 4: introduce tables, measured values, simple graphing, explicit comparative testing and branching keys.
+• Years 5 and 6: add variable panels, repeat trials, graph choice, evidence prompts, misconception checks and evaluation of trust in results.
+4.4 Teacher experience
+• Preview any investigation in teacher mode with all steps unlocked.
+• Assign an investigation to a year group/class or launch as a whole-class projected activity.
+• View completed pupil notebooks and exports.
+• See which curriculum areas and enquiry types have been covered.
+• Optionally simplify, hide or prefill sections for support.
+5. Functional requirements
+5.1 Content and metadata
+• Each investigation must be defined by structured metadata: year group, curriculum area, topic keywords, enquiry type, working scientifically objectives, age band, complexity, safety note, and linked prompt set.
+• The system must support future authoring of new investigations without rebuilding the whole app.
+• Each investigation must include teacher notes and pupil-facing instructions.
+5.2 Simulation engine requirements
+• Support common simulation types: time-based growth/change, drag-and-drop classification, simple physics comparisons, circuit logic, ray tracing, charts and graph outputs, simple ecosystems and agent/probabilistic models.
+• Allow repeat trials with controlled randomness where educationally useful.
+• Expose measurable outputs to the record panel automatically.
+• Allow teacher-defined presets so the same investigation can run at different difficulty levels.
+5.3 Recording and notebook requirements
+• Notebook autosaves at every step.
+• Pupils can revisit earlier steps without losing later work.
+• Investigation output may include drawings, labels, tables, bar charts, line graphs, scatter graphs, branching keys, short paragraphs and slide-style report cards, depending on phase.
+• Exports should support at least PDF and print-friendly view for teacher use.
+5.4 Assessment and reporting requirements
+• Capture process data, not only final answers: question chosen, prediction made, variable choices, number of trials, recording choices, conclusion text and evaluation text.
+• Provide teacher-readable summaries showing whether pupils completed each enquiry stage.
+• Support simple evidence statements such as completed / attempted / needs review rather than misleading automated grading claims.
+5.5 Accessibility and inclusion requirements
+• Keyboard-operable alternatives for drag interactions.
+• Clear focus states and logical tab order.
+• Text alternatives for essential audio information.
+• Narration or read-aloud option for younger pupils and emerging readers.
+• Colour should never be the only carrier of meaning.
+• Volume-limited sound tools and a mute-safe default for sound investigations.
+6. Non-functional requirements
+AreaRequirementPerformanceCore investigations should load quickly on school broadband and run smoothly on typical Chromebooks.ReliabilityAutosave must protect pupil work from accidental reloads and short dropouts.SecurityTeacher and pupil data must be stored securely; minimise personal data by design.PrivacyPrefer pseudonymous identifiers where accounts are introduced; keep pupil data entry minimal.MaintainabilityShared shell, component library and metadata-driven content system are mandatory.ScalabilityArchitecture should support many investigations without bespoke one-off code paths.Offline toleranceInvestigations already opened should degrade gracefully where temporary connectivity drops.StandardsAim for WCAG 2.2-aligned accessibility practice and modern browser support.7. Technical architecture recommendation
+Codex should build the application around a shared investigation framework rather than as a collection of isolated pages. The most important architectural decision is to separate the enquiry shell, the simulation components and the content metadata.
+7.1 Suggested stack
+• Frontend: React or Next.js with TypeScript.
+• Rendering: Canvas/SVG/WebGL selectively depending on the investigation; use the simplest adequate option.
+• State: a predictable client store for current investigation state plus persisted notebook data.
+• Charts: a reliable accessible chart library for bar/line/scatter outputs.
+• Backend: lightweight API for authentication (if used), classes/assignments, saved notebooks and reporting.
+• Database: structured relational or document storage keyed by investigation metadata and user/session records.
+7.2 Recommended domain model
+EntityFields / responsibilityInvestigationDefinitionid, title, yearGroup, curriculumArea, enquiryType, wsObjectives, difficulty, simulationType, prompts, variables, recordingModes, safetyNote, teacherNoteInvestigationSessionid, userId/sessionId, investigationId, answers, trialData, chartState, completionState, timestampsTrialRecordsessionId, trialNumber, variables, observedValues, notesClassAssignmentteacherId, classId, investigationId, dueDate, supportOptionsCurriculumMapcurriculumArea, objectives, investigationIds, coverage status7.3 Authoring model
+Wherever possible, investigations should be driven by configuration rather than hard-coded prose. Codex should create an investigation schema that allows prompts, sentence stems, variable labels, measurement units, safety notes and teacher guidance to be swapped without rebuilding shared components.
+8. Development phases
+This project is too large for a single build pass. The phases below are sequenced so that Codex builds the shared product spine first, then adds progressively richer investigations. Each phase should end with a usable milestone, not just background plumbing.
+PhaseGoalOutputKey build focusExit0Discovery and system designArchitecture + content schemaInformation architecture, investigation schema, design system, technical spikeSpec signed off1Core app shellUsable MVP shellNavigation, user roles, notebook, autosave, shared enquiry flowPupils can complete a simple investigation2KS1 foundation packReception–Y2 starter release4–6 low/medium complexity investigations, simple recording modes, audio supportKS1 pilotable3LKS2 science engine packY3–Y4 richer simulationsMeasurements, tables, bar/line graphing, branching keys, circuits, sound/light toolsLKS2 pilotable4UKS2 advanced enquiry packY5–Y6 advanced simulationsVariables, repeats, evaluation tools, richer evidence handling, line/scatter graphsFull curriculum baseline complete5Teacher reporting and assignmentClassroom deployment layerAssignments, review, exports, curriculum coverage dashboardTeacher-ready6Polish, accessibility and optimisationRelease candidateAccessibility audit, performance tuning, content QA, bug fixingRelease-readyPhase 0: Discovery and system design
+• Create the design system, interaction rules and investigation JSON/schema.
+• Define the common notebook data model and export format.
+• Prototype at least three different simulation types: drag-classify, time-based change, measurement-based comparative test.
+• Establish curriculum metadata and complete the investigation backlog from the source catalogue.
+Phase 1: Core app shell
+• Build navigation, year/topic filtering, the universal enquiry shell, notebook, save/resume and teacher preview mode.
+• Implement age-band display rules so the same shell can simplify or expand based on target year.
+• Add a first end-to-end investigation using the final shell, not a throwaway prototype.
+Phase 2: KS1 foundation pack
+• Prioritise simpler investigations such as Material Properties Test Bench, Senses Sorting, Habitat Match and Explain, Daylight Tracker, Healthy Choices Planner and Microhabitat Explorer.
+• Add pictograms, simple tables, icon prompts and narration.
+• Use this phase to prove whole-class and independent pupil usability.
+Phase 3: LKS2 science engine pack
+• Add measurement overlays, standard units, labelled diagrams, bar charts and line graphs.
+• Deliver medium/high-complexity simulations such as Shadow Lab, Rock Detective, Build-a-Branching Key, Simple Circuits Builder and Pitch/Volume tools.
+• Introduce fault-finding and guided improvement prompts.
+Phase 4: UKS2 advanced enquiry pack
+• Add variable panels, repeat readings, evidence prompts, graph choice and evaluation of trust in results.
+• Deliver high-complexity investigations such as Ecosystem Balance, Dissolving/Separating, Earth–Moon–Sun, Parachute Drop, Circulatory Investigation, Natural Selection and advanced Electricity.
+• Ensure outputs align to UKS2 working scientifically expectations.
+Phase 5: Teacher reporting and assignment
+• Enable class setup, assignment, completed notebook review, export and curriculum coverage tracking.
+• Support whole-class projection mode and exemplar mode.
+• Provide lightweight analytics on investigation completion and enquiry stage completion.
+Phase 6: Polish, accessibility and optimisation
+• Run content QA against curriculum coverage, age appropriateness and misconception handling.
+• Complete keyboard and screen-reader checks, performance testing on school hardware, and browser QA.
+• Fix defects, refine copy and simplify any over-complex screens.
+9. Investigation implementation strategy
+Not all investigations need bespoke code from scratch. Codex should group the catalogue into reusable simulation families.
+Simulation familyReusable mechanicsExample investigationsClassification familydrag-sort, branching keys, habitat matching, evidence-card groupingVirtual Nature Walk Journal, Habitat Match, Microhabitat Explorer, Build-a-Branching Key, Classification Key ChallengeTime-series change familygrowth/change over time with measurements and chartsSeed-to-Seedling, Daylight Tracker, Teeth and Decay, Transpiration, Circulatory, Development TimelineComparative/fair test familyexplicit variable selection with repeated runsShadow Lab, Materials Bench, Seed Dispersal, Parachute Drop, Dissolving Lab, Voltage/BrightnessModel/explanation familyconceptual models with explanatory overlaysStates of Matter Particle View, Earth–Moon–Sun, Periscope and Reflection, Skeleton & MusclesConstruction familybuild and test a systemBridge Builder, Simple Circuits Builder, periscope, traffic-light style circuit tasks10. Content design requirements for every investigation
+• Pupil title and concise challenge statement.
+• Teacher note with curriculum link and intended learning.
+• Named enquiry type and working scientifically objectives.
+• Age-appropriate question prompt.
+• Prediction prompt.
+• Plan step with only the level of complexity suitable for that phase.
+• Simulation controls and variable labels.
+• Auto-captured or pupil-entered recording area.
+• Interpretation prompt with evidence requirement.
+• Evaluation prompt.
+• Safety note linking the virtual task to sensible real-world science behaviour.
+11. Misconceptions and pedagogical safeguards
+• Do not let pupils progress through an investigation without recording some evidence.
+• Do not present random outcomes as mistakes; where randomness exists, teach repetition and patterns across runs.
+• Use misconception checks in content where there are common errors, for example: dark is the absence of light; bulbs do not 'use up' electricity in a simple explanatory sense; animals do not choose to adapt because they want to.
+• Avoid over-precise scientific claims when the curriculum only requires simplified models.
+• Show when a simulation is a model. Older pupils should be told that a model helps explain but is not the thing itself.
+12. QA and acceptance criteria
+12.1 Global acceptance criteria
+• Every year group and curriculum area required by the source catalogue is represented by at least one working investigation.
+• Every investigation can be completed from question to evaluation within the shared enquiry shell.
+• Age-appropriate recording modes are enforced.
+• Teacher mode can preview and export outputs.
+• Autosave and resume work reliably.
+• Accessibility checks pass for core navigation and essential tasks.
+12.2 Per-investigation acceptance checklist
+• Loads correctly and presents the right metadata.
+• Question, prediction, testing, recording, interpretation and evaluation steps all function.
+• Simulation outputs can be recorded and revisited.
+• Pupil can complete without encountering dead ends.
+• Teacher can reset or demo the investigation.
+• Copy is accurate to the intended curriculum content.
+13. Suggested build order of investigations
+Codex should not implement the anchor investigations in curriculum order. The better order is by reusability and dependency.
+• Wave 1: Habitat Match and Explain; Material Properties Test Bench; Senses Sorting; Daylight Tracker.
+• Wave 2: Microhabitat Explorer; Healthy Choices Planner; Bridge Builder; Seed-to-Seedling Growth Lab.
+• Wave 3: Shadow Lab; Rock Detective; Build-a-Branching Key; Teeth and Decay.
+• Wave 4: Simple Circuits Builder; States of Matter Particle View; Pitch/Volume and Wave Viewer.
+• Wave 5: Earth–Moon–Sun; Dissolving and Separating; Parachute Drop; Circulatory Investigation.
+• Wave 6: Ecosystem Balance; Natural Selection; Voltage/Brightness and advanced evidence tasks.
+14. Risks and mitigations
+RiskWhy it mattersMitigationToo many bespoke buildsProject becomes slow and hard to maintainBuild reusable simulation families and shared shell firstOver-scaffolded experiencePupils click through without thinkingUse prompts that require a choice, explanation or evidenceUnder-scaffolded experiencePupils guess or misuse enquiry stepsLock progression behind minimal meaningful actionsPerformance on school hardwarePoor classroom usabilityOptimise assets, prefer simple rendering where possible, test on Chromebooks earlyCurriculum driftShiny simulations fail to match statutory contentAttach every investigation to explicit curriculum metadata and QA reviewSensitive health/development contentPotential pastoral issuesTeacher controls, careful copy, anonymised datasets and school-policy alignment15. Delivery package Codex should produce
+• A working web application with the phased architecture above.
+• An investigation definition schema and starter content files.
+• A component library for shell steps, charts, tables, prompts and teacher review cards.
+• A developer README explaining how to add new investigations.
+• A curriculum coverage manifest showing the mapping of investigations to year groups and objectives.
+16. Final implementation brief for Codex
+Build Primary Science Explorer as a metadata-driven, enquiry-first web application. Start by creating the shared investigation shell, notebook and content schema. Then implement investigations in reusable families, beginning with KS1-friendly low-complexity tasks and expanding to LKS2 and UKS2 advanced models. Do not treat simulations as isolated mini-games: every investigation must move pupils through question, prediction, plan, test, record, interpret and evaluate, with the level of support adapted to age. The finished product must cover all curriculum areas in Years 1–6 using the anchor investigation set in the project source, while remaining maintainable, accessible and classroom-usable.Appendix A: Anchor investigation coverage list
+Use the following anchor list as the mandatory curriculum baseline. Investigation names are drawn from the project source.
+Year / phaseMandatory anchor investigationsReception / readinessVirtual Nature Walk Journal; Habitat Match and Explain; Seasons Explorer and Weather Diary; Melting and Freezing Kitchen LabYear 1Seed-to-Seedling Growth Lab; Senses Sorting and 'Which Sense Helps Most?' Test; Material Properties Test Bench; Daylight Tracker and Weather PatternsYear 2Microhabitat Explorer + Alive/Dead/Never Alive Sort; Seed Dispersal Simulator; Healthy Choices Planner; Materials Engineering: Build a BridgeYear 3Transpiration Tracker; Skeleton & Muscles: Move the Joint Lab; Rock Detective; Shadow Length and Torch Distance Lab; Magnet MazeYear 4Build-a-Branching Key; Teeth and Decay Investigation; Heating/Cooling and Particle View; Pitch, Volume and Wave Viewer; Simple Circuits BuilderYear 5Ecosystem Balance Model; Human Development Timeline and Growth Data Lab; Dissolving and Separating Mixtures Lab; Earth–Moon–Sun Motion Simulator; Parachute Drop Air Resistance LabYear 6Microorganism and Classification Key Challenge; Circulatory System Pump and Pulse Investigation; Natural Selection Simulator; Periscope and Reflection Ray Lab; Voltage, Brightness and Resistance Investigation
